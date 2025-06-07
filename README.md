@@ -19,4 +19,8 @@ docker run -p 5173:5173 chat-app-frontend:latest
 
 ## Open the browser
 
+Access the app using the below link
+
+```bash
 http://localhost:5173
+```
