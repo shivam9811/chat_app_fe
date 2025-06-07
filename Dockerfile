@@ -1,11 +1,27 @@
-FROM node:20
+# ----------------------------
+# Stage 1: Build the frontend
+# ----------------------------
+FROM node:20 AS builder
 
 WORKDIR /app
 
-COPY . .
-
+COPY package*.json ./
 RUN npm install
 
-EXPOSE 5173
+COPY . .
+RUN npm run build
 
-CMD ["npm", "run", "dev"]
+# ------------------------------------
+# Stage 2: Serve the frontend with NGINX
+# ------------------------------------
+FROM nginx:alpine
+
+# Remove default nginx static files
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy built assets from previous stage
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

@@ -13,7 +13,7 @@ docker build -t chat-app-frontend .
 ---
 
 ```bash
-docker run -p 5173:5173 chat-app-frontend:latest
+docker run -p 80:80 chat-app-frontend:latest
 ```
 
 ---
@@ -23,6 +23,6 @@ docker run -p 5173:5173 chat-app-frontend:latest
 Access the app using the below link
 
 ```bash
-http://localhost:5173
+http://localhost
 ```
 
