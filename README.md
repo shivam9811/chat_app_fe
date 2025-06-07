@@ -8,9 +8,14 @@ Use the following command to build the Docker image:
 
 ```bash
 docker build -t chat-app-frontend .
+```
+---
 
 ```bash
 docker run -p 5173:5173 chat-app-frontend:latest
+```
+
+---
 
 ## Open the browser
 
