@@ -9,6 +9,7 @@ Use the following command to build the Docker image:
 ```bash
 docker build -t chat-app-frontend .
 ```
+
 ---
 
 ```bash
